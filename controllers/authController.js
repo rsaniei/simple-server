@@ -100,7 +100,7 @@ function login(req, res, next) {
     	// email: req.user.email,
       // name: req.user.name
   	);
-    // res.send("Hello from backend!!!")
+    res.send("Hello from backend!!!")
   };
 
 
