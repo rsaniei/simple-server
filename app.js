@@ -9,6 +9,7 @@ const errorHandler = require('./middleware/errorHandler')
 const initializePassport = require('./config/passport-config')
 const cors = require('cors')
 const app = express();
+const MONGO_BD = "mongodb+srv://vercel-admin-user:2VhunSBXehwF2TAw@cluster0.rch8ndm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 // ********* CORS SETUP *************
 // app.use(function (req, res, next) {
@@ -43,7 +44,7 @@ app.use(express.urlencoded({ extended: false }));
 mongoose.set('strictQuery', true);
 const port = process.env.PORT || 4000;
 const sessionStore = new MongoStore({
-  mongoUrl: process.env.MONGODB_URI,
+  mongoUrl: MONGO_BD,
   collection: "sessions",
 });
 
