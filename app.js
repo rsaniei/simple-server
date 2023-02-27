@@ -43,7 +43,7 @@ app.use(express.urlencoded({ extended: false }));
 mongoose.set('strictQuery', true);
 const port = process.env.PORT || 4000;
 const sessionStore = new MongoStore({
-  mongoUrl: process.env.MONGODB_URL,
+  mongoUrl: process.env.MONGODB_URI,
   collection: "sessions",
 });
 
