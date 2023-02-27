@@ -44,14 +44,14 @@ app.use(express.urlencoded({ extended: false }));
 mongoose.set('strictQuery', true);
 const port = process.env.PORT || 4000;
 const sessionStore = new MongoStore({
-  mongoUrl: MONGO_BD,
+  mongoUrl: process.env.MONGODB_URI,
   collection: "sessions",
 });
 
 app.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: process.env.SECRET,
+  secret: "process.env.SECRET",
   store: sessionStore,
   cookie: {
     maxAge: 1000 * 60 * 60 * 24,
