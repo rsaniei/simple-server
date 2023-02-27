@@ -94,12 +94,12 @@ function login(req, res, next) {
 
 
   async function getUser(req, res) {
-    const user = await User.find({} );
-    res.status(200).json({
+    const user = await User.find({});
+    res.status(200).json(user
 
     	// email: req.user.email,
       // name: req.user.name
-  	});
+  	);
     // res.send("Hello from backend!!!")
   };
 
