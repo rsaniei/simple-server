@@ -12,24 +12,24 @@ const app = express();
 const MONGO_BD = "mongodb+srv://vercel-admin-user:2VhunSBXehwF2TAw@cluster0.rch8ndm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 // ********* CORS SETUP *************
-// app.use(function (req, res, next) {
-//     res.setHeader("Access-Control-Allow-Credentials", true);
-//     res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
-//     res.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-//     res.setHeader(
-//       "Access-Control-Allow-Headers",
-//       "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
-//     );
-//     next();
-//   });
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
+    );
+    next();
+  });
 
-//   app.use(
-//     cors({
-//       credentials: true,
-//       allowedHeaders: ["Origin, X-Requested-With, Content-Type, Accept"],
-//     })
-//   );
-//   app.set("trust proxy", 1);
+  app.use(
+    cors({
+      credentials: true,
+      allowedHeaders: ["Origin, X-Requested-With, Content-Type, Accept"],
+    })
+  );
+  app.set("trust proxy", 1);
   ///
 initializePassport(passport);
 dotenv.config();
