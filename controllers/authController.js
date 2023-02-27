@@ -95,11 +95,12 @@ function login(req, res, next) {
 
   async function getUser(req, res) {
 
-    await User.create({
+    const result = await User.create({
         name: "ali shadman",
         email: "ali@gmail.com",
         password: "123"
       });
+      res.json(result);
     // const user = await User.find({""});
     // res.status(200).json(user
 
